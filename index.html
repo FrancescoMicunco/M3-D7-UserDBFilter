@@ -17,21 +17,21 @@
         <div class="row">
             <div class="col-6">
                 <div class="input-group">
-                    <input id="input" type="text" class="form-control" aria-label="Text input with dropdown button">
+                    <select class="custom-select" id="inputGroupSelect04" onchange="selectFilter()" aria-label="Example select with button addon">
+    <option selected>Choose...</option>
+    <option value="1">Name</option>
+    <option value="2">Username</option>
+    <option value="3">Email</option>
+  </select>
                     <div class="input-group-append">
-                        <button id="btnInput" class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Dropdown</button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Name</a>
-                            <a class="dropdown-item" href="#">Username</a>
-                            <a class="dropdown-item" href="#">Email</a>
-                        </div>
+                        <button id="btnInput" class="btn btn-outline-secondary" type="button">GO</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="container">
-        <div class="row">
+        <div class="row" id="rowTable">
 
         </div>
     </div>
