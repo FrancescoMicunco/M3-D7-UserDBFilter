@@ -3,7 +3,7 @@ let btnInput = document.getElementById("btnInput")
 let rowtable = document.getElementById("rowTable")
 let groupSelect = document.getElementById("inputGroupSelect04")
 
-
+let tbody = document.getElementById('tbody');
 
 function selectFilter() {
 
@@ -38,53 +38,39 @@ btnInput.addEventListener("click", function(e) {
     }
 }) */
 
-let users = []
+// create row
+
 let fetchUsers = async() => {
     try {
         let res = await fetch("https://jsonplaceholder.typicode.com/users");
         if (res.ok) {
             let result = await res.json();
-            result.forEach(e => {
-                console.log(e.name)
-            });
             return result;
-
         } else {
             throw new Error("no users fetched!")
         }
-
     } catch (error) {
         throw error;
     }
 }
-
-let cratetable = async() => {
-    rowtable.innerHTML = `
-    <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-  </tbody>
-</table>
-    
-    `
-
+let row = (e) => {
+    `<tr>
+    <td>${e.name}</td>
+<td>${e.username}</td>
+<td>${e.email}</td>
+</tr>
+`
 }
 
-
-
+let renderUser = () => {
+    tbody.innerHTML = ""
+    result.forEach(e => {
+        tbody.innerHTML += row(result)
+    })
+}
 window.onload = () => {
     fetchUsers()
+
+
 }
+renderUser()
